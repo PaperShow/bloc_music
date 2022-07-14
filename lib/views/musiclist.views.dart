@@ -22,7 +22,7 @@ class MusicListViews extends StatelessWidget {
           body: BlocBuilder<MusicBloc, MusicState>(
             builder: (context, state) {
               if (state is NoInternetState) {
-                return Center(
+                return const Center(
                   child: Text('No Internet Connection'),
                 );
               }
@@ -40,7 +40,7 @@ class MusicListViews extends StatelessWidget {
                         onTap: () {
                           Navigator.of(context).push(MaterialPageRoute(
                               builder: (context) => TrackDetailPage(
-                                    trackid: state.track[index].track.trackId,
+                                    track: state.track[index].track,
                                   )));
                         },
                         child: ListTile(

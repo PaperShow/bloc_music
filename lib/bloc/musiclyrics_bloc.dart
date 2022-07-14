@@ -3,7 +3,6 @@ import 'package:bloc_music_lyrics/services/musiclyric_services.dart';
 import 'package:equatable/equatable.dart';
 
 import '../models/music_lyric.dart';
-import '../services/music.services.dart';
 
 part 'musiclyrics_event.dart';
 part 'musiclyrics_state.dart';

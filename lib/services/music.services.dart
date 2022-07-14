@@ -1,6 +1,5 @@
 import 'dart:convert';
 import 'package:bloc_music_lyrics/models/music_list.dart';
-import 'package:bloc_music_lyrics/models/music_lyric.dart';
 import 'package:http/http.dart' as http;
 
 class MusicServices {

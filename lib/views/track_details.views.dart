@@ -1,4 +1,5 @@
 import 'package:bloc_music_lyrics/bloc/music_bloc.dart';
+import 'package:bloc_music_lyrics/models/music_list.dart';
 import 'package:bloc_music_lyrics/services/connection_services.dart';
 import 'package:bloc_music_lyrics/services/musiclyric_services.dart';
 import 'package:flutter/material.dart';
@@ -8,9 +9,9 @@ import '../bloc/musiclyrics_bloc.dart';
 import '../services/music.services.dart';
 
 class TrackDetailPage extends StatelessWidget {
-  const TrackDetailPage({Key? key, required this.trackid}) : super(key: key);
+  const TrackDetailPage({Key? key, required this.track}) : super(key: key);
 
-  final int trackid;
+  final Track track;
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +19,7 @@ class TrackDetailPage extends StatelessWidget {
       providers: [
         BlocProvider(
           create: (context) => MusiclyricsBloc(
-            trackid,
+            track.trackId,
             RepositoryProvider.of<MusicLyricServices>(context),
           )..add(LoadLyricApiEvent()),
         ),
@@ -46,21 +47,24 @@ class TrackDetailPage extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'TrackName',
-                          style: TextStyle(fontSize: 30),
+                          track.trackName,
+                          style: const TextStyle(
+                              fontSize: 25, fontWeight: FontWeight.bold),
                         ),
                         Text(
-                          'Track Artist',
-                          style: TextStyle(fontSize: 25),
+                          'by ' + track.artistName,
+                          style: const TextStyle(fontSize: 22),
                         ),
-                        Text(
-                          'Lyrics',
+                        const SizedBox(height: 20),
+                        const Text(
+                          'Lyrics-----',
                           style: TextStyle(
                               fontSize: 30, fontWeight: FontWeight.bold),
                         ),
+                        const SizedBox(height: 10),
                         Text(
                           state.lyrics.lyricsBody,
-                          style: TextStyle(
+                          style: const TextStyle(
                             fontSize: 15,
                           ),
                         ),
