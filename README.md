@@ -1,6 +1,7 @@
 # bloc_music_lyrics
 
-A new Flutter project.
+A basic music lyrics app giving you details about particular music.
+This app is designed on Bloc Architecture
 
 ## Getting Started
 
